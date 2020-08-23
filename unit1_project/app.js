@@ -42,28 +42,28 @@ class computerFighter {
     }
 }
 
+
 // AJAX
 // generate character options:
 $('#generate').on('click', (event) => {
-    event.preventDefault()
-    // const userInput = $('input[type="text"]').val()
-    randomID = Math.floor(Math.random()*4)+1
-    console.log(randomID)
-    $.ajax({
-        // url: 'http://www.omdbapi.com/?apikey=bb83a7cf&t=' + userInput
-        url: `https://www.superheroapi.com/api.php/2668094310098995/${randomID}` 
-    }).then(
-        (data)=>{
-            console.log(data)
-            $('#pic1').html(`<img src="${data.image.url}" width="70px">`)
-            console.log(data.image)
-            console.log(data.image.url)
-        },
-        ()=>{
-            console.log('bad request')
-        }
-    )
-    
+    for (let i=1;i<8;i++) {
+        event.preventDefault()
+        randomID = Math.floor(Math.random()*400)
+        console.log(randomID)
+        $.ajax({
+            url: `https://www.superheroapi.com/api.php/2668094310098995/${randomID}` 
+        }).then(
+            (data)=>{    
+                // console.log(data)
+                $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
+                // console.log(data.image)
+                // console.log(data.image.url) 
+            },
+            ()=>{
+                console.log('bad request')
+            }
+        )
+    }
 })
 
 

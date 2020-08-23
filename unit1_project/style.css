@@ -34,16 +34,20 @@ header {
     display: flex;
 }
 
-.pics {
+/* .pics {
     height: 20%;
     width:10%;
     border: 2px solid red;
     margin-right: 5px;
     margin-top: 5px;
 
+} */
+
+
+.pics {
+    margin-right: 10px;
+    margin-left: 10px;
 }
-
-
 
 
 
