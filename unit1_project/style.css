@@ -51,9 +51,6 @@ header {
 
 
 
-
-
-
 #arena {
     margin-top: 20px;
     height: 70px;
@@ -68,4 +65,26 @@ header {
     height: 400px;
     width: 90%;
     border: 2px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#player1 {
+    height: 100px;
+    width:100px;
+    border: 2px solid black;
+    margin-left: 100px;
+}
+
+#versus {
+    font-size: 70px;
+}
+
+#player2 {
+    height: 100px;
+    width:100px;
+    border: 2px solid black;
+    margin-right: 100px;
 }
