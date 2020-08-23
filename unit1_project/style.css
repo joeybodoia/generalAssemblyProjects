@@ -1,0 +1,67 @@
+header {
+    height:100px;
+    width: 90%;
+    border: 2px solid black;
+    text-align: center;
+}
+
+#drag {
+    margin-top: 20px;
+    height: 50px;
+    width:89%;
+    border: 2px solid black;
+    padding-left: 10px;;
+}
+
+#field {
+    margin-top: 20px;
+    height: 30px;
+    width:88%;
+    border: 2px solid black;
+    
+}
+
+#field button {
+    margin-top: 5px;
+}
+
+
+#characterPics {
+    margin-top: 20px;
+    height: 400px;
+    width: 90%;
+    border: 2px solid black;
+    display: flex;
+}
+
+.pics {
+    height: 20%;
+    width:10%;
+    border: 2px solid red;
+    margin-right: 5px;
+    margin-top: 5px;
+
+}
+
+
+
+
+
+
+
+
+#arena {
+    margin-top: 20px;
+    height: 70px;
+    width: 90%;
+    border: 2px solid black;
+    text-align: center;
+}
+
+
+#battleArena {
+    margin-top: 20px;
+    height: 400px;
+    width: 90%;
+    border: 2px solid black;
+}
