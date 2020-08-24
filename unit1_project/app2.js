@@ -1,47 +1,48 @@
-// Creating classes for the two fighters
+// // Creating classes for the two fighters
 
-class userFighter {
-    constructor(name, health, power, accuracy){
-        this.name = name
-        this.health = health
-        this.power = power
-        this.accuracy =accuracy
-    }
-    attack() {
-        if (Math.random()*10 <= this.accuracy){
-            return 'attack successful'
-        } else {
-            return 'attack missed'
-        }
-    }
-    checkStats(){
-        alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
-    }
-    forfeit(){
-        alert(`${this.name} has forfeited`)
-    }
+// class userFighter {
+//     constructor(name, health, power, accuracy){
+//         this.name = name
+//         this.health = health
+//         this.power = power
+//         this.accuracy =accuracy
+//     }
+//     attack() {
+//         if (Math.random()*10 <= this.accuracy){
+//             return 'attack successful'
+//         } else {
+//             return 'attack missed'
+//         }
+//     }
+//     checkStats(){
+//         alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
+//     }
+//     forfeit(){
+//         alert(`${this.name} has forfeited`)
+//     }
 
-}
+// }
 
-class computerFighter {
-    constructor(name, health, power, accuracy){
-        this.name = name
-        this.health = health
-        this.power = power
-        this.accuracy =accuracy
-    }
-    attack() {
-        if (Math.random()*10 <= this.accuracy){
-            return 'attack successful'
-        } else {
-            return 'attack missed'
-        }
-    }
-    checkStats(){
-        alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
-    }
-}
+// class computerFighter {
+//     constructor(name, health, power, accuracy){
+//         this.name = name
+//         this.health = health
+//         this.power = power
+//         this.accuracy =accuracy
+//     }
+//     attack() {
+//         if (Math.random()*10 <= this.accuracy){
+//             return 'attack successful'
+//         } else {
+//             return 'attack missed'
+//         }
+//     }
+//     checkStats(){
+//         alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
+//     }
+// }
 
+// $('#battleArena').droppable()
 
 // AJAX
 // generate character options:
@@ -55,7 +56,9 @@ $('#generate').on('click', (event) => {
         }).then(
             (data)=>{    
                 // console.log(data)
-                $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
+                $div = $('<div>').html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'}).addClass('drag').attr('id',`pics${i}`).draggable()
+                $('#characterPics').append($div)
+                // $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
                 $(`#pic${i}`).draggable()
                 console.log(data.image)
                 console.log(data.image.url)
@@ -68,9 +71,28 @@ $('#generate').on('click', (event) => {
     }
 })
 
+$( function() {
+    $('.players' ).droppable( 
+        { 
+            accept:".drag", 
+            drop :function() 
+        { 
+            alert("I am dropped"); 
+        } 
+        } ); 
+        } );
 
-// default image 
-// if (image =- null) {
-// }
 
-// drag and drop functionality:
+
+
+
+
+const startGame = () => {
+    alert('Match starting')
+}
+
+
+
+
+// game logic:ahahah
+$('#start').on('click', startGame)

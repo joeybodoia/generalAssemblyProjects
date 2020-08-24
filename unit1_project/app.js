@@ -56,7 +56,7 @@ $('#generate').on('click', (event) => {
             (data)=>{    
                 // console.log(data)
                 $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
-                $(`#pic${i}`).draggable()
+                // $(`#pic${i}`).draggable()
                 console.log(data.image)
                 console.log(data.image.url)
 

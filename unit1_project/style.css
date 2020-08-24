@@ -62,17 +62,28 @@ header {
 
 #battleArena {
     margin-top: 20px;
-    height: 400px;
+    height: 40px;
     width: 90%;
     border: 2px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+
+
+#container {
+    height: 400px;
+    width: 90%;
+    border: 2px solid green;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 #player1 {
-    height: 100px;
+    height: 150px;
     width:100px;
     border: 2px solid black;
     margin-left: 100px;
@@ -83,7 +94,7 @@ header {
 }
 
 #player2 {
-    height: 100px;
+    height: 150px;
     width:100px;
     border: 2px solid black;
     margin-right: 100px;
