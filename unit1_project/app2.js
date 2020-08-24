@@ -47,7 +47,7 @@
 // AJAX
 // generate character options:
 $('#generate').on('click', (event) => {
-    for (let i=1;i<8;i++) {
+    for (let i=1;i<11;i++) {
         event.preventDefault()
         randomID = Math.floor(Math.random()*400)
         console.log(randomID)
@@ -56,7 +56,7 @@ $('#generate').on('click', (event) => {
         }).then(
             (data)=>{    
                 // console.log(data)
-                $div = $('<div>').html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'}).addClass('drag').attr('id',`pics${i}`).draggable()
+                $div = $('<div>').html(`<img src="${data.image.url}" id ='image' width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'}).addClass('drag').attr('id',`pics${i}`).draggable()
                 $('#characterPics').append($div)
                 // $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
                 $(`#pic${i}`).draggable()

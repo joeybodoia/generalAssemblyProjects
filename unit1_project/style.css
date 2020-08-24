@@ -32,6 +32,7 @@ header {
     width: 90%;
     border: 2px solid black;
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* .pics {
@@ -44,12 +45,20 @@ header {
 } */
 
 
-.pics {
+/* .pics {
     margin-right: 10px;
     margin-left: 10px;
+} */
+
+.drag {
+    height: 49.6%;
+    width: 19.6%;
 }
 
-
+#image {
+    height: 100%;
+    width: 100%;
+}
 
 #arena {
     margin-top: 20px;
@@ -84,7 +93,7 @@ header {
 }
 #player1 {
     height: 150px;
-    width:100px;
+    width:210px;
     border: 2px solid black;
     margin-left: 100px;
 }
@@ -95,7 +104,7 @@ header {
 
 #player2 {
     height: 150px;
-    width:100px;
+    width:210px;
     border: 2px solid black;
     margin-right: 100px;
 }
