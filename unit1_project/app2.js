@@ -45,6 +45,7 @@
 // $('#battleArena').droppable()
 
 // AJAX
+
 // generate character options:
 $('#generate').on('click', (event) => {
     for (let i=1;i<11;i++) {
@@ -55,13 +56,24 @@ $('#generate').on('click', (event) => {
             url: `https://www.superheroapi.com/api.php/2668094310098995/${randomID}` 
         }).then(
             (data)=>{    
-                // console.log(data)
-                $div = $('<div>').html(`<img src="${data.image.url}" id ='image' width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'}).addClass('drag').attr('id',`pics${i}`).draggable()
-                $('#characterPics').append($div)
+                console.log(data)
+
+                // $div = $('<div>').html(`<img src="${data.image.url}" onerror=this.src=“https://i.imgur.com/9E8YTrtb.jpg” id ='image' width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'}).addClass('drag').attr('id',`pics${i}`).draggable()
+                $div = $("<div>")
+          .html(
+            `<img src="${data.image.url}" onerror=this.src="https://i.imgur.com/9E8YTrtb.jpg" id ='image' width="100px" height='150px'>`
+          ).css({ border: "2px solid red", height: "150px"})
+          .addClass("drag")
+          .attr("id", `pics${i}`)
+          .draggable({helper: 'clone'});
+                
+                $div.append($('<div>').text(`${data.name}`).attr('id',`${data.id}`))
+                $('.characterPics').append($div)
                 // $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
-                $(`#pic${i}`).draggable()
-                console.log(data.image)
-                console.log(data.image.url)
+
+                $(`#pic${i}`).draggable({helper: 'clone'})
+                // console.log(data.image)
+                // console.log(data.image.url)
 
             },
             ()=>{
@@ -75,14 +87,22 @@ $( function() {
     $('.players' ).droppable( 
         { 
             accept:".drag", 
-            drop :function() 
+            drop :function(event,ui) 
         { 
-            alert("I am dropped"); 
+            alert("I am dropped");
+            // console.log(ui)
+            // console.log(ui.draggable)
+            $(this).append($(ui.draggable).css({width:'100%'}))
+            console.log($('#player1'))
+            console.log($(this))
+            // console.log($(event.target))
+            // $('#player1').append($('<div>')).text('hello')
+            
         } 
         } ); 
         } );
 
-
+    
 
 
 

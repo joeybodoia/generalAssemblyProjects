@@ -26,13 +26,16 @@ header {
 }
 
 
-#characterPics {
+.characterPics {
     margin-top: 20px;
-    height: 400px;
+    /* height: 400px; */
     width: 90%;
     border: 2px solid black;
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    /* flex-grow: 1; */
+    /* flex-wrap: wrap; */
 }
 
 /* .pics {
@@ -58,6 +61,8 @@ header {
 #image {
     height: 100%;
     width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #arena {
@@ -90,12 +95,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* display: none; */
+
 }
 #player1 {
     height: 150px;
     width:210px;
     border: 2px solid black;
     margin-left: 100px;
+    /* z-index: -1; */
 }
 
 #versus {
