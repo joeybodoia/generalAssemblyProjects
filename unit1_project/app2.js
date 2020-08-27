@@ -94,9 +94,11 @@ $( function() {
             alert("I am dropped");
             // console.log(ui)
             // console.log(ui.draggable)
-            $(this).append($(ui.draggable).css({width:'98%',height:'98%','margin-top':'0','max-width':'400px'}))
-            console.log($('#player1'))
-            console.log($(this))
+            $('.player').css({'display':'hidden'})
+            $(this).append($(ui.draggable).css({width:'70%',height:'55%','margin-top':'0','max-width':'400px','align-self':'center','border':'4px solid rgb(255,235,0)'}))
+            // $(this).append($(ui.draggable))
+            // console.log($('#player1'))
+            // console.log($(this))
             // console.log($(event.target))
             // $('#player1').append($('<div>')).text('hello')
             
