@@ -1,3 +1,10 @@
+/* superman yellow: (255,235,0) */
+
+
+body {
+    background-color:rgba(13, 132, 223, 0.9);
+}
+
 header {
     /* max-height:340px; */
     width: 90%;
@@ -5,16 +12,20 @@ header {
     text-align: center;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     background-color: rgb(247, 10, 10);
     
 }
 
-/* h1 {
-    text-align: center;
-    justify-self: center; */
 
-/* } */
+
+header h1 {
+    display: flex;
+    align-self: center;
+    font-family: 'Bangers', cursive;
+    font-size: 7vw;
+    text-shadow: 3px 3px 3px white;
+}
 
 
 header .allMight {
@@ -24,6 +35,7 @@ header .allMight {
     display: flex;
     order: 0;
     background-color:rgb(247, 10, 10);
+    align-self: flex-end;
 }
 
 header .goku {
@@ -33,9 +45,10 @@ header .goku {
     display: flex;
     order: 0;
     background-color: rgb(247, 10, 10);
+    align-self: flex-end;
 }
 
-blockquote.bubble { 
+/* blockquote.bubble { 
 	background-position: center;
   background-repeat: no-repeat !important;
 	background-size: 100% 100%;
@@ -51,7 +64,7 @@ blockquote.speech {
   padding-top: 6%;
     padding-bottom: 20%;
     transform: rotate(100deg);
-}
+} */
 
 
 
@@ -59,20 +72,28 @@ blockquote.speech {
     margin-top: 20px;
     height: 50px;
     width:89%;
-    border: 2px solid black;
-    padding-left: 10px;;
+    /* border: 2px solid black; */
+    padding-left: 10px;
+    font-size: 2vw;
+    font-family: 'Bangers', cursive;
+    text-shadow: 1px 1px 1px white;
 }
 
-#field {
+#buttonContainer {
     margin-top: 20px;
     height: 30px;
     width:88%;
-    border: 2px solid black;
+    
+    /* border: 2px solid black; */
     
 }
 
-#field button {
+#generate {
     margin-top: 5px;
+    background-color: rgb(247, 10, 10);
+    font-family: 'Bangers', cursive;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px white;
 }
 
 
@@ -80,7 +101,7 @@ blockquote.speech {
     margin-top: 20px;
     /* height: 400px; */
     width: 90%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -121,9 +142,12 @@ blockquote.speech {
 #arena {
     margin-top: 20px;
     height: 70px;
-    width: 90%;
-    border: 2px solid black;
+    width: 90%; 
+    /* border: 2px solid black; */
     text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 3vw;
+    text-shadow: 2px 2px 2px rgb(255,235,0);
 }
 
 
@@ -131,13 +155,22 @@ blockquote.speech {
     margin-top: 20px;
     height: 40px;
     width: 90%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 5px;
 }
+
+#start {
+    background-color: rgb(255,235,0);
+    font-size: 2vw;
+
+
+}
+
+
 
 
 #container {
@@ -160,7 +193,7 @@ blockquote.speech {
 }
 
 #versus {
-    font-size: 70px;
+    font-size: 5vw;
 }
 
 #player2 {

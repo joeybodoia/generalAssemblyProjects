@@ -63,12 +63,12 @@ $('#generate').on('click', (event) => {
                 $div = $("<div>")
           .html(
             `<img src="${data.image.url}" onerror=this.src="https://i.imgur.com/9E8YTrtb.jpg" id ='image' width="100px" height='150px'>`
-          ).css({ border: "2px solid red", height: "150px"})
+          ).css({ 'border': "5px solid red", height: "150px", 'border-radius':'2px'})
           .addClass("drag")
           .attr("id", `pics${i}`)
           .draggable({helper: 'clone'});
                 
-                $div.append($('<div>').text(`${data.name}`).attr('id',`${data.id}`))
+                $div.append($('<div>').text(`${data.name}`).attr('id',`${data.id}`).css({'font-family': 'Bangers','font-size':'2vw', 'margin-top':'4px','text-align':'center','text-shadow': '1px 1px 1px white'}))
                 $('.characterPics').append($div)
                 // $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
 
