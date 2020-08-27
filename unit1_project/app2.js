@@ -48,7 +48,8 @@
 
 // generate character options:
 $('#generate').on('click', (event) => {
-    for (let i=1;i<11;i++) {
+    $('.characterPics').empty()
+    for (let i=1;i<9;i++) {
         event.preventDefault()
         randomID = Math.floor(Math.random()*400)
         console.log(randomID)
@@ -83,6 +84,7 @@ $('#generate').on('click', (event) => {
     }
 })
 
+
 $( function() {
     $('.players' ).droppable( 
         { 
@@ -92,7 +94,7 @@ $( function() {
             alert("I am dropped");
             // console.log(ui)
             // console.log(ui.draggable)
-            $(this).append($(ui.draggable).css({width:'100%'}))
+            $(this).append($(ui.draggable).css({width:'98%',height:'98%','margin-top':'0','max-width':'400px'}))
             console.log($('#player1'))
             console.log($(this))
             // console.log($(event.target))

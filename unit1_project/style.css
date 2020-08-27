@@ -1,9 +1,59 @@
 header {
-    height:100px;
+    /* max-height:340px; */
     width: 90%;
     border: 2px solid black;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: rgb(247, 10, 10);
+    
 }
+
+/* h1 {
+    text-align: center;
+    justify-self: center; */
+
+/* } */
+
+
+header .allMight {
+    height: 100%;
+    width: 25%;
+    /* border: 2px solid black; */
+    display: flex;
+    order: 0;
+    background-color:rgb(247, 10, 10);
+}
+
+header .goku {
+    height: 100%;
+    width: 25%;
+    /* border: 2px solid black; */
+    display: flex;
+    order: 0;
+    background-color: rgb(247, 10, 10);
+}
+
+blockquote.bubble { 
+	background-position: center;
+  background-repeat: no-repeat !important;
+	background-size: 100% 100%;
+  margin: 0 auto;
+ 
+  
+	}
+
+blockquote.speech {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+  height: 50px;
+  width: 20%;
+  padding-top: 6%;
+    padding-bottom: 20%;
+    transform: rotate(100deg);
+}
+
+
 
 #drag {
     margin-top: 20px;
@@ -56,6 +106,9 @@ header {
 .drag {
     height: 49.6%;
     width: 19.6%;
+    max-width: 150px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 #image {
