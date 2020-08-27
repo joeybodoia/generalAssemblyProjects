@@ -1,6 +1,29 @@
-// // Creating classes for the two fighters
+// Creating classes for the two fighters
 
-// class userFighter {
+class UserFighter {
+    constructor(name, health, power, accuracy){
+        this.name = name
+        this.health = health
+        this.power = power
+        this.accuracy =accuracy
+    }
+    attack() {
+        if (Math.random()*100 <= this.accuracy){
+            return 'attack successful'
+        } else {
+            return 'attack missed'
+        }
+    }
+    checkStats(){
+        alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
+    }
+    forfeit(){
+        alert(`${this.name} has forfeited`)
+    }
+
+}
+
+// class ComputerFighter {
 //     constructor(name, health, power, accuracy){
 //         this.name = name
 //         this.health = health
@@ -20,29 +43,9 @@
 //     forfeit(){
 //         alert(`${this.name} has forfeited`)
 //     }
-
 // }
 
-// class computerFighter {
-//     constructor(name, health, power, accuracy){
-//         this.name = name
-//         this.health = health
-//         this.power = power
-//         this.accuracy =accuracy
-//     }
-//     attack() {
-//         if (Math.random()*10 <= this.accuracy){
-//             return 'attack successful'
-//         } else {
-//             return 'attack missed'
-//         }
-//     }
-//     checkStats(){
-//         alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
-//     }
-// }
 
-// $('#battleArena').droppable()
 
 // AJAX
 
@@ -130,12 +133,15 @@ const startGame = () => {
         success: function(result) {}  
       });
       
-      $.when( ajax1 , ajax2  ).done(function( a1, a2 ) {
-         // a1 and a2 are arguments resolved for the page1 and page2 ajax requests, respectively.
-         // Each argument is an array with the following structure: [ data, statusText, jqXHR ]
-         console.log(a1[0].name)
-         console.log(a2[0].powerstats)
-         
+      $.when( ajax1 , ajax2  ).done(function( player1, player2 ) {
+        //  console.log(a1[0].name)
+        //  console.log(a2[0].powerstats)
+         const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, player1[0].powerstats.combat)
+         console.log(fighter1)
+         const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, player2[0].powerstats.combat)
+         console.log(fighter2)
+
+
       });
 
 }
