@@ -299,7 +299,11 @@ blockquote.speech {
 
 
 #modal-footer {
-    text-align: right;
+    height:9%;
+    width: 100%;
+    /* border: 3px solid black; */
+    display: flex;
+    justify-content: flex-end;
     /* width:10% */
     
 }
@@ -312,14 +316,15 @@ blockquote.speech {
 
 .modal-buttons {
 	padding: 14px 18px;
-	background-color: #677996;
+	background-color: black;
 	border: none;
 	outline: none;
 	border-radius: 3px;
 	color: white;
-	font-family: 'Arial';
+    font-family: 'Bangers', cursive;
+    font-size: 2vw;
     cursor: pointer;
-    display: none;
+    /* display: none; */
 }
 
 #modal-textbox {
@@ -342,14 +347,16 @@ blockquote.speech {
 
 
 .showdown {
-    height:5%;
+    margin-top: -7%;
+    height:15%;
     width:100%;
+    /* border: 2px solid black; */
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .showdown h1 {
-    margin-top: 5%;
     font-size: 4vw;
     font-family: 'Bangers', cursive;
     text-shadow: 1px 1px 1px white;

@@ -78,6 +78,9 @@ $( function() {
 const startGame = () => {
     $modal = $('#modal')
     $modal.css('display', 'block' )
+    $('#close').on('click',()=>{
+        $modal.css('display','none')
+    })
     $('.modalImage1').prepend($('#player1').children().eq(1).css({'border':'3px solid black','margin-top':'5px'}))
     $('.modalImage2').prepend($('#player2').children().eq(1).css({'border':'3px solid black','margin-top':'5px'}))
     // console.log($('#player1').children().eq(1).attr('id'))
@@ -201,6 +204,7 @@ const startGame = () => {
          $('#close3').on('click',()=>{
              $('#modal3').css('display','none')
          })
+
 
       })
 
