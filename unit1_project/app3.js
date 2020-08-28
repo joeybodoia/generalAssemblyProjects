@@ -23,44 +23,19 @@ class UserFighter {
 
 }
 
-// class ComputerFighter {
-//     constructor(name, health, power, accuracy){
-//         this.name = name
-//         this.health = health
-//         this.power = power
-//         this.accuracy =accuracy
-//     }
-//     attack() {
-//         if (Math.random()*10 <= this.accuracy){
-//             return 'attack successful'
-//         } else {
-//             return 'attack missed'
-//         }
-//     }
-//     checkStats(){
-//         alert(`Name: ${this.name},Health:${this.health},Power:${this.power},Accuracy:${this.accuracy}`)
-//     }
-//     forfeit(){
-//         alert(`${this.name} has forfeited`)
-//     }
-// }
-
-
 
 // AJAX
-
 // generate character options:
 $('#generate').on('click', (event) => {
     $('.characterPics').empty()
     for (let i=1;i<9;i++) {
         event.preventDefault()
         randomID = Math.floor(Math.random()*400)
-        // console.log(randomID)
+    
         $.ajax({
             url: `https://www.superheroapi.com/api.php/2668094310098995/${randomID}` 
         }).then(
             (data)=>{    
-                // console.log(data)
                 $div = $("<div>")
           .html(
             `<img src="${data.image.url}" onerror=this.src="https://i.imgur.com/9E8YTrtb.jpg" id ='image' width="100px" height='150px'>`
@@ -74,8 +49,6 @@ $('#generate').on('click', (event) => {
                 // $(`#pic${i}`).html(`<img src="${data.image.url}" width="100px" height='150px'>`).css({"border":'2px solid red','height':'150px'})
 
                 $(`${data.id}`).draggable()
-                // console.log(data.image)
-                // console.log(data.image.url)
 
             },
             ()=>{
@@ -93,49 +66,12 @@ $( function() {
             drop :function(event,ui) 
         { 
             alert("I am dropped");
-            // console.log(ui)
-            // console.log(ui.draggable)
             $('.player').css({'display':'hidden'})
             $(this).append($(ui.draggable).css({width:'70%',height:'55%','margin-top':'0','max-width':'400px','align-self':'center','border':'4px solid rgb(255,235,0)'}))
-            // $(this).append($(ui.draggable))
-            // console.log($('#player1'))
-            // console.log($(this))
-            // console.log($(event.target))
-            // $('#player1').append($('<div>')).text('hello')
             
         } 
         } ); 
         } );
-
-    
-// fighter2Attack = () => {
-
-//     attackInput = prompt(`${player2[0].name} sees an opening, would you like him to attack? [y] [n]`)
-//     if (attackInput == 'y') {
-//         fighter2.attack()
-//         // console.log(fighter2.accuracy)
-//         // console.log(fighter2.attack())
-//         alert('attack has been fired!')
-//         if (fighter2.attack() == 'attack successful') {
-//             fighter1.health -= fighter2.power/10
-//             console.log(fighter1.health)
-//             alert(`${fighter1.name} hit! ${fighter2.power/10} damage done!`)
-//             if (fighter1.health <= 0){
-//             alert(`${fighter1.name} has been defeated!`)
-//             alert(`${fighter2.name} is the winner`)
-//             break
-//             } else {
-//                 alert(`${fighter1.name} has ${fighter1.health} health left`)
-//             }
-
-//         }else {
-//             alert('attack missed!')
-//         }
-//         break
-//     }
-
-// }
-
 
 
 const startGame = () => {
@@ -177,9 +113,9 @@ const startGame = () => {
                  console.log(fighter1.attack())
                  alert('attack has been fired!')
                  if (fighter1.attack() == 'attack successful') {
-                     fighter2.health -= fighter1.power/10
+                     fighter2.health -= fighter1.power/5
                      console.log(fighter2.health)
-                     alert(`${fighter2.name} hit! ${fighter1.power/10} damage done!`)
+                     alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
                      if (fighter2.health <= 0){
                         alert(`${fighter2.name} has been defeated!`)
                         alert(`${fighter1.name} is the winner`)
@@ -193,9 +129,9 @@ const startGame = () => {
                             // console.log(fighter2.attack())
                             alert('attack has been fired!')
                             if (fighter2.attack() == 'attack successful') {
-                                fighter1.health -= fighter2.power/10
+                                fighter1.health -= fighter2.power/5
                                 console.log(fighter1.health)
-                                alert(`${fighter1.name} hit! ${fighter2.power/10} damage done!`)
+                                alert(`${fighter1.name} hit! ${fighter2.power/5} damage done!`)
                                 if (fighter1.health <= 0){
                                 alert(`${fighter1.name} has been defeated!`)
                                 alert(`${fighter2.name} is the winner`)
@@ -220,9 +156,9 @@ const startGame = () => {
                         // console.log(fighter2.attack())
                         alert('attack has been fired!')
                         if (fighter2.attack() == 'attack successful') {
-                            fighter1.health -= fighter2.power/10
+                            fighter1.health -= fighter2.power/5
                             console.log(fighter1.health)
-                            alert(`${fighter1.name} hit! ${fighter2.power/10} damage done!`)
+                            alert(`${fighter1.name} hit! ${fighter2.power/5} damage done!`)
                             if (fighter1.health <= 0){
                             alert(`${fighter1.name} has been defeated!`)
                             alert(`${fighter2.name} is the winner`)
@@ -252,3 +188,5 @@ const startGame = () => {
 
 // game logic:
 $('#start').on('click', startGame)
+
+// next step: build a modal for game logic
