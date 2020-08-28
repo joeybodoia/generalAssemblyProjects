@@ -65,7 +65,7 @@ $( function() {
             accept:".drag", 
             drop :function(event,ui) 
         { 
-            alert("I am dropped");
+            // alert("I am dropped");
             $('.player').css({'display':'hidden'})
             $(this).append($(ui.draggable).css({width:'70%',height:'55%','margin-top':'0','max-width':'400px','align-self':'center','border':'4px solid rgb(255,235,0)'}))
             
@@ -190,9 +190,70 @@ const startGame = () => {
     $modal.css('display', 'block' )
     $('#p1').prepend($('#player1').children().eq(1).css({'border':'3px solid black','margin-top':'5px'}))
     $('#p2').prepend($('#player2').children().eq(1).css({'border':'3px solid black','margin-top':'5px'}))
-    console.log($('#player1').children().eq(1).attr('id'))
+    // console.log($('#player1').children().eq(1).attr('id'))
+    alert('Match starting')
+    console.log($('#p1').children().eq(0).attr('id'))
+    console.log($('#p2').children().eq(0).attr('id'))
+    const player1ID = $('#p1').children().eq(0).attr('id')
+    const player2ID = $('#p2').children().eq(0).attr('id')
+    const ajax1 = $.ajax({ 
+        dataType: "json",
+        url: `https://www.superheroapi.com/api.php/2668094310098995/${player1ID}`,
+        async: true,
+        success: function(result) {}                     
+      });
+      
+      
+      const ajax2 = $.ajax({ 
+        dataType: "json",
+        url:`https://www.superheroapi.com/api.php/2668094310098995/${player2ID}`,
+        async: true,
+        success: function(result) {}  
+      });
+      
+      $.when( ajax1 , ajax2  ).done(function( player1, player2 ) {
+        //  console.log(a1[0].name)
+        //  console.log(a2[0].powerstats)
+         const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, player1[0].powerstats.combat)
+         console.log(fighter1)
+         const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, player2[0].powerstats.combat)
+         console.log(fighter2)
+         alert(`Welcome to Superhero Showdown! Today's fight is between ${player1[0].name} and ${player2[0].name}`)
+         console.log(fighter1.accuracy)
+         console.log(fighter1.attack())
+         while (true) {
+            //  attackInput = prompt(`${player1[0].name} sees an opening, would you like him to attack? [y] [n]`)
+             $('#attack1').on('click', () => {
+                fighter1.attack()
+                console.log(fighter1.attack())
+                 alert('attack has been fired!')
+                 if (fighter1.attack() == 'attack successful') {
+                    fighter2.health -= fighter1.power/5
+                    console.log(fighter2.health)
+                    alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
+                    
+                }
+             })
+             break
+             
+            //  if (attackInput == 'y') {
+            //      fighter1.attack()
+            //      console.log(fighter1.accuracy)
+            //      console.log(fighter1.attack())
+            //      alert('attack has been fired!')
+            //      if (fighter1.attack() == 'attack successful') {
+            //          fighter2.health -= fighter1.power/5
+            //          console.log(fighter2.health)
+            //          alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
+            //      }
+            //      }
+                 }
+
+      })
+
 
 }
+
 // game logic:
 $('#start').on('click', startGame)
 
