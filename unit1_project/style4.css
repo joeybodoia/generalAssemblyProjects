@@ -304,7 +304,7 @@ blockquote.speech {
     align-items: center;
 }
 
-.healthBar {
+.healthBar1 {
     display: flex;
     height: 10%;
     width: 100%;
@@ -312,6 +312,7 @@ blockquote.speech {
     background-color: green;
     align-self: flex-end;
     align-items: flex-start;
+    margin-right: auto;
 }
 
 #attack1{
@@ -353,6 +354,17 @@ blockquote.speech {
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
+}
+
+.healthBar2 {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    border: 2px solid green;
+    background-color: green;
+    align-self: flex-end;
+    align-items: flex-start;
+    margin-right: auto;
 }
 
 #attack2{

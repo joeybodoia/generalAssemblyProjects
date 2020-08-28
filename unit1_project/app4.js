@@ -191,7 +191,7 @@ const startGame = () => {
     $('#p1').prepend($('#player1').children().eq(1).css({'border':'3px solid black','margin-top':'5px'}))
     $('#p2').prepend($('#player2').children().eq(1).css({'border':'3px solid black','margin-top':'5px'}))
     // console.log($('#player1').children().eq(1).attr('id'))
-    alert('Match starting')
+    // alert('Match starting')
     console.log($('#p1').children().eq(0).attr('id'))
     console.log($('#p2').children().eq(0).attr('id'))
     const player1ID = $('#p1').children().eq(0).attr('id')
@@ -214,47 +214,100 @@ const startGame = () => {
       $.when( ajax1 , ajax2  ).done(function( player1, player2 ) {
         //  console.log(a1[0].name)
         //  console.log(a2[0].powerstats)
-         const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, player1[0].powerstats.combat)
+        //  const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, player1[0].powerstats.combat)
+         const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, 100)
          console.log(fighter1)
-         const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, player2[0].powerstats.combat)
+         const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, 100)
+        //  const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, player2[0].powerstats.combat)
          console.log(fighter2)
          alert(`Welcome to Superhero Showdown! Today's fight is between ${player1[0].name} and ${player2[0].name}`)
-         console.log(fighter1.accuracy)
-         console.log(fighter1.attack())
-         while (true) {
-            //  attackInput = prompt(`${player1[0].name} sees an opening, would you like him to attack? [y] [n]`)
-             $('#attack1').on('click', () => {
-                fighter1.attack()
-                console.log(fighter1.attack())
-                 alert('attack has been fired!')
-                 if (fighter1.attack() == 'attack successful') {
-                    fighter2.health -= fighter1.power/5
-                    console.log(fighter2.health)
-                    alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
-                    
-                }
-             })
-             break
-             
-            //  if (attackInput == 'y') {
-            //      fighter1.attack()
-            //      console.log(fighter1.accuracy)
-            //      console.log(fighter1.attack())
-            //      alert('attack has been fired!')
-            //      if (fighter1.attack() == 'attack successful') {
-            //          fighter2.health -= fighter1.power/5
-            //          console.log(fighter2.health)
-            //          alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
-            //      }
-            //      }
-                 }
+        //  console.log(fighter1.accuracy)
+        //  console.log(fighter1.attack())
+         const f1Attack = () => {
+            fighter1.attack()
+            console.log(fighter1.attack())
+            //  alert('attack has been fired!')
+             if (fighter1.attack() == 'attack successful') {
+                fighter2.health -= fighter1.power/2
+                $('.healthBar2').css({'width':`${fighter2.health}%`})
+                // console.log(fighter2.health)
+                // alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
+                if (fighter2.health <= 0){
+                    alert(`${fighter2.name} has been defeated!`)
+                    alert(`${fighter1.name} is the winner`)
+                    } else {
+                        alert(`${fighter2.name} has ${fighter2.health} health left`)
+                    }
+            }else {
+                alert('Attack missed!')
+            }
+         }
+         $('#attack1').on('click', f1Attack)
+        
+         const f2Attack = () => {
+             fighter2.attack()
+            //  alert('attack has been fired!')
+             if (fighter2.attack() == 'attack successful') {
+                fighter1.health -= fighter2.power/5
+                $('.healthBar1').css({'width':`${fighter1.health}%`})
+                // console.log(fighter1.health)
+                // alert(`${fighter1.name} hit! ${fighter2.power/5} damage done!`)
+                if (fighter1.health <= 0){
+                    alert(`${fighter1.name} has been defeated!`)
+                    alert(`${fighter2.name} is the winner`)
+                    } else {
+                        alert(`${fighter1.name} has ${fighter1.health} health left`)
+                    }
+            }else {
+                alert('Attack missed!')
+            }
+         }
+         $('#attack2').on('click', f2Attack)
+
+        //  const checkStats1 = () => {
+
+        //  }
 
       })
 
+    }
 
-}
+
+
+
 
 // game logic:
 $('#start').on('click', startGame)
 
 // next step: build a modal for game logic
+// if (f1Attack) {
+//     alert('break')
+//     break
+// } else {
+//     alert('gonna keep going')
+//     break
+// }
+// while (true) {
+// //  attackInput = prompt(`${player1[0].name} sees an opening, would you like him to attack? [y] [n]`)
+
+// $('#attack1').on('click', f1Attack)
+// if (f1Attack) {
+//     alert('break')
+//     break
+// } else {
+//     alert('gonna keep going')
+//     break
+// }
+
+// if (attackInput == 'y') {
+//     fighter1.attack()
+//     console.log(fighter1.accuracy)
+//     console.log(fighter1.attack())
+//     alert('attack has been fired!')
+//     if (fighter1.attack() == 'attack successful') {
+//         fighter2.health -= fighter1.power/5
+//         console.log(fighter2.health)
+//         alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
+//     }
+//     }
+//     }
