@@ -108,7 +108,33 @@ $( function() {
         } );
 
     
+// fighter2Attack = () => {
 
+//     attackInput = prompt(`${player2[0].name} sees an opening, would you like him to attack? [y] [n]`)
+//     if (attackInput == 'y') {
+//         fighter2.attack()
+//         // console.log(fighter2.accuracy)
+//         // console.log(fighter2.attack())
+//         alert('attack has been fired!')
+//         if (fighter2.attack() == 'attack successful') {
+//             fighter1.health -= fighter2.power/10
+//             console.log(fighter1.health)
+//             alert(`${fighter1.name} hit! ${fighter2.power/10} damage done!`)
+//             if (fighter1.health <= 0){
+//             alert(`${fighter1.name} has been defeated!`)
+//             alert(`${fighter2.name} is the winner`)
+//             break
+//             } else {
+//                 alert(`${fighter1.name} has ${fighter1.health} health left`)
+//             }
+
+//         }else {
+//             alert('attack missed!')
+//         }
+//         break
+//     }
+
+// }
 
 
 
@@ -140,6 +166,81 @@ const startGame = () => {
          console.log(fighter1)
          const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, player2[0].powerstats.combat)
          console.log(fighter2)
+         alert(`Welcome to Superhero Showdown! Today's fight is between ${player1[0].name} and ${player2[0].name}`)
+         console.log(fighter1.accuracy)
+         console.log(fighter1.attack())
+         while (true) {
+             attackInput = prompt(`${player1[0].name} sees an opening, would you like him to attack? [y] [n]`)
+             if (attackInput == 'y') {
+                 fighter1.attack()
+                 console.log(fighter1.accuracy)
+                 console.log(fighter1.attack())
+                 alert('attack has been fired!')
+                 if (fighter1.attack() == 'attack successful') {
+                     fighter2.health -= fighter1.power/10
+                     console.log(fighter2.health)
+                     alert(`${fighter2.name} hit! ${fighter1.power/10} damage done!`)
+                     if (fighter2.health <= 0){
+                        alert(`${fighter2.name} has been defeated!`)
+                        alert(`${fighter1.name} is the winner`)
+                        break
+                     } else {
+                         alert(`${fighter2.name} has ${fighter2.health} health left`)
+                         attackInput = prompt(`${player2[0].name} sees an opening, would you like him to attack? [y] [n]`)
+                        if (attackInput == 'y') {
+                            fighter2.attack()
+                            // console.log(fighter2.accuracy)
+                            // console.log(fighter2.attack())
+                            alert('attack has been fired!')
+                            if (fighter2.attack() == 'attack successful') {
+                                fighter1.health -= fighter2.power/10
+                                console.log(fighter1.health)
+                                alert(`${fighter1.name} hit! ${fighter2.power/10} damage done!`)
+                                if (fighter1.health <= 0){
+                                alert(`${fighter1.name} has been defeated!`)
+                                alert(`${fighter2.name} is the winner`)
+                                break
+                                } else {
+                                    alert(`${fighter1.name} has ${fighter1.health} health left`)
+                                }
+
+                            }else {
+                                alert('attack missed!')
+                            }
+                            
+                        }
+                    }
+
+                 }else {
+                     alert('attack missed!')
+                     attackInput = prompt(`${player2[0].name} sees an opening, would you like him to attack? [y] [n]`)
+                    if (attackInput == 'y') {
+                        fighter2.attack()
+                        // console.log(fighter2.accuracy)
+                        // console.log(fighter2.attack())
+                        alert('attack has been fired!')
+                        if (fighter2.attack() == 'attack successful') {
+                            fighter1.health -= fighter2.power/10
+                            console.log(fighter1.health)
+                            alert(`${fighter1.name} hit! ${fighter2.power/10} damage done!`)
+                            if (fighter1.health <= 0){
+                            alert(`${fighter1.name} has been defeated!`)
+                            alert(`${fighter2.name} is the winner`)
+                            break
+                            } else {
+                                alert(`${fighter1.name} has ${fighter1.health} health left`)
+                            }
+
+                        }else {
+                            alert('attack missed!')
+                        }
+                        
+                    }
+                 }
+                 
+             }
+             
+         }
 
 
       });
