@@ -1,4 +1,4 @@
-// Creating classes for the two fighters
+// Creating a class for the two fighters
 
 class UserFighter {
     constructor(name, health=100, power=75, accuracy){
@@ -36,7 +36,9 @@ $('#generate').on('click', (event) => {
         $.ajax({
             url: `https://www.superheroapi.com/api.php/2668094310098995/${randomID}` 
         }).then(
-            (data)=>{    
+            (data)=>{   
+                // stretch goal:
+                //  create is_hero_valid function that checks if powerstats and image are valid and returns true or false, if false skip over and try a different randomID
                 $div = $("<div>")
           .html(
             `<img src="${data.image.url}" onerror=this.src="https://i.imgur.com/9E8YTrtb.jpg" id ='image' width="100px" height='150px'>`
@@ -59,7 +61,7 @@ $('#generate').on('click', (event) => {
     }
 })
 
-
+// function that handles the drop event:
 $( function() {
     $('.players' ).droppable( 
         { 
@@ -74,7 +76,7 @@ $( function() {
         } ); 
         } );
 
-
+// game logic:
 const startGame = () => {
     $modal = $('#modal')
     $modal.css('display', 'block' )
@@ -108,7 +110,7 @@ const startGame = () => {
       $.when( ajax1 , ajax2  ).done(function( player1, player2 ) {
         //  console.log(a1[0].name)
         //  console.log(a2[0].powerstats)
-        //  const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, player1[0].powerstats.combat)
+        
         if (player1[0].powerstats.power == 'null') {
             player1[0].powerstats.power = 69
         }
@@ -122,10 +124,12 @@ const startGame = () => {
             player2[0].powerstats.combat = 69
         }
         
+        //  const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, player1[0].powerstats.combat)
          const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, 100)
          console.log(fighter1)
-         const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, 100)
-        //  const fighter2 = new UserFighter(`${player2[0].name}`,100, player2[0].powerstats.power, player2[0].powerstats.combat)
+        //  const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, player2[0].powerstats.combat)
+         const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, 0)
+        
          console.log(fighter2)
         //  alert(`Welcome to Superhero Showdown! Today's fight is between ${player1[0].name} and ${player2[0].name}`)
         //  console.log(fighter1.accuracy)
@@ -141,7 +145,7 @@ const startGame = () => {
                 // alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
                 if (fighter2.health <= 0){
                     // alert(`${fighter2.name} has been defeated!`)
-                    alert('player defeated!')
+                    // alert('player defeated!')
                     $('#modal5').css('display','block')
                     $('#playerDefeated').html(`${fighter2.name} Defeated!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(255,235,0)'})
                     $('#winner').html(`${fighter1.name} wins!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(255,235,0)'})
@@ -174,7 +178,7 @@ const startGame = () => {
                 if (fighter1.health <= 0){
                     // alert(`${fighter1.name} has been defeated!`)
                     // alert(`${fighter2.name} is the winner`)
-                    alert('player defeated!')
+                    // alert('player defeated!')
                     $('#modal5').css('display','block')
                     $('#modal-textbox5').css({'background-color':'rgb(255,235,0)'} )
                     $('.modal-buttons5').css({'background-color':'rgb(247, 10, 10)'})
@@ -251,5 +255,5 @@ const startGame = () => {
 
     }
 
-// game logic:
+//run game logic:
 $('#start').on('click', startGame)
