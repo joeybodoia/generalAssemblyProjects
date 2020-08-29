@@ -109,6 +109,19 @@ const startGame = () => {
         //  console.log(a1[0].name)
         //  console.log(a2[0].powerstats)
         //  const fighter1 = new UserFighter(`${player1[0].name}`,100, player1[0].powerstats.power, player1[0].powerstats.combat)
+        if (player1[0].powerstats.power == 'null') {
+            player1[0].powerstats.power = 69
+        }
+        if (player1[0].powerstats.combat == 'null') {
+            player1[0].powerstats.combat = 69
+        }
+        if (player2[0].powerstats.power == 'null') {
+            player2[0].powerstats.power = 69
+        }
+        if (player2[0].powerstats.combat == 'null') {
+            player2[0].powerstats.combat = 69
+        }
+        
          const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, 100)
          console.log(fighter1)
          const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, 100)
@@ -128,12 +141,24 @@ const startGame = () => {
                 // alert(`${fighter2.name} hit! ${fighter1.power/5} damage done!`)
                 if (fighter2.health <= 0){
                     // alert(`${fighter2.name} has been defeated!`)
-                    // alert(`${fighter1.name} is the winner`)
+                    alert('player defeated!')
+                    $('#modal5').css('display','block')
+                    $('#playerDefeated').html(`${fighter2.name} Defeated!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(255,235,0)'})
+                    $('#winner').html(`${fighter1.name} wins!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(255,235,0)'})
+                    $('#close5').on('click',()=>{
+                        $('#modal5').css('display','none')
+                    })
                     } else {
                         // alert(`${fighter2.name} has ${fighter2.health} health left`)
                     }
             }else {
-                alert('Attack missed!')
+                // alert('Attack missed!')
+                $('#modal4').css('display','block')
+                $('#attackMissed').html(`Attack Missed!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(255,235,0)'})
+                $('#close4').on('click',()=>{
+                    $('#modal4').css('display','none')
+                })
+
             }
          }
          $('#attack1').on('click', f1Attack)
@@ -149,11 +174,27 @@ const startGame = () => {
                 if (fighter1.health <= 0){
                     // alert(`${fighter1.name} has been defeated!`)
                     // alert(`${fighter2.name} is the winner`)
+                    alert('player defeated!')
+                    $('#modal5').css('display','block')
+                    $('#modal-textbox5').css({'background-color':'rgb(255,235,0)'} )
+                    $('.modal-buttons5').css({'background-color':'rgb(247, 10, 10)'})
+                    $('#playerDefeated').html(`${fighter1.name} Defeated!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(247, 10, 10)'})
+                    $('#winner').html(`${fighter2.name} wins!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(247, 10, 10)'})
+                    $('#close5').on('click',()=>{
+                        $('#modal5').css('display','none')
+                    })
                     } else {
                         // alert(`${fighter1.name} has ${fighter1.health} health left`)
                     }
             }else {
-                alert('Attack missed!')
+                // alert('Attack missed!')
+                $('#modal4').css('display','block')
+                $('#modal-textbox4').css({'background-color':'rgb(255,235,0)'} )
+                $('.modal-buttons4').css({'background-color':'rgb(247, 10, 10)'})
+                $('#attackMissed').html(`Attack Missed!`).css({'font-family': 'Bangers','font-size':'4vw','text-shadow': '1px 1px 1px rgb(247, 10, 10)'})
+                $('#close4').on('click',()=>{
+                    $('#modal4').css('display','none')
+                })
             }
          }
          $('#attack2').on('click', f2Attack)

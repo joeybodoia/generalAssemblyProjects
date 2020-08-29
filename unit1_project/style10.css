@@ -635,8 +635,133 @@ blockquote.speech {
 #close3 {
     margin-left: auto;
 }
+
+
+#modal4 {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
+	display: none;
+}
+
+#modal-textbox4 {
+	background-color: rgb(247, 10, 10);
+	height: 350px;
+	width: 550px;
+    /* border-radius: 2px; */
+    border: 4px solid black;
+	margin: 150px auto;
+	/*This will set the margins for the top and the bottom to 150px (or larger). The right and left will automatically set themselves (and keep the box centered horizontally).*/
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	/*This will give the box some depth.*/
+	padding: 2%;
+	line-height: 120%;
+    font-family: 'Bangers', cursive;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#modal-footer4 {
+	margin-left: auto;
+}
+
+/* h1 {
+	padding-bottom: 15px;
+} */
+
+.modal-buttons4 {
+	padding: 14px 18px;
+	background-color: rgb(255,235,0);
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: black;
+	font-family: 'Bangers', cursive;
+	cursor: pointer;
+}
+
+#attackMissed {
+    height: 20%;
+    width:100%;
+    /* border: 2px solid black; */
+    margin-top: -10%;
+    text-align: center;
+}
 /* .heathNButtons {
     height: 20%;
     width: 100%;
     border: 3px solid white
 } */
+
+#modal5 {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
+	display: none;
+}
+
+#modal-textbox5 {
+	background-color: rgb(247, 10, 10);
+	height: 350px;
+	width: 550px;
+    /* border-radius: 2px; */
+    border: 4px solid black;
+	margin: 150px auto;
+	/*This will set the margins for the top and the bottom to 150px (or larger). The right and left will automatically set themselves (and keep the box centered horizontally).*/
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	/*This will give the box some depth.*/
+	padding: 2%;
+	line-height: 120%;
+    font-family: 'Bangers', cursive;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#modal-footer5 {
+	margin-left: auto;
+}
+
+/* h1 {
+	padding-bottom: 15px;
+} */
+
+.modal-buttons5 {
+	padding: 14px 18px;
+	background-color: rgb(255,235,0);
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: black;
+	font-family: 'Bangers', cursive;
+	cursor: pointer;
+}
+
+#playerDefeated {
+    height: 20%;
+    width:100%;
+    /* border: 2px solid black; */
+    margin-top: -10%;
+    text-align: center;
+}
+
+#winner {
+    height: 20%;
+    width:100%;
+    /* border: 2px solid black; */
+    margin-top: -10%;
+    text-align: center;
+}
