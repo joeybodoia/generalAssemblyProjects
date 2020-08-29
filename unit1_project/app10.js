@@ -124,11 +124,11 @@ const startGame = () => {
             player2[0].powerstats.combat = 69
         }
         
-        //  const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, player1[0].powerstats.combat)
-         const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, 100)
+         const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, player1[0].powerstats.combat)
+        //  const fighter1 = new UserFighter(`${player1[0].name}`,player1[0].health, player1[0].powerstats.power, 100)
          console.log(fighter1)
-        //  const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, player2[0].powerstats.combat)
-         const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, 0)
+         const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, player2[0].powerstats.combat)
+        //  const fighter2 = new UserFighter(`${player2[0].name}`,player2[0].health, player2[0].powerstats.power, 0)
         
          console.log(fighter2)
         //  alert(`Welcome to Superhero Showdown! Today's fight is between ${player1[0].name} and ${player2[0].name}`)
